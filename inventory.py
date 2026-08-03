@@ -4,12 +4,31 @@ class Inventory:
     def __init__(self):
         self.products = []
 
-    def add_product(self, product):
-        self.products.append(product)
+    def add_product(self):
+        prod_id = int(input("Enter Product ID : "))
+        name = input("Enter product name : ")
+        category = input("Enter product category : ")
+        price = float(input("Enter  product price : "))
+        stock = int(input("Enter stock : "))
+        found = False
+        for item in self.products:
+            if prod_id == item.prod_id:
+                found = True
+                print("\nProduct ID already exists.\n")
+                break
+            return False
+        if found == False:
+            product = Product(prod_id, name, category, price, stock)
+            self.products.append(product)
+            print("\nProduct added successfully!\n")
+            return True
 
     def display_products(self):
-        for item in self.products:
-            item.display()
+        if len(self.products) == 0:
+            print("\nNo products available\n")
+        else:
+            for item in self.products:
+                item.display()
 
     def search_product(self): 
         product_id = int(input("Enter Product ID : "))
@@ -31,6 +50,22 @@ class Inventory:
                 found = True
                 self.products.remove(item)
                 print("\nProduct deleted successfully!\n")
+                break
+        if found == False:
+            print("\nProduct not found.\n")
+
+    def update_product(self):
+        product_id = int(input("Enter Product ID : "))
+        found = False
+        for item in self.products:
+            if product_id == item.prod_id:
+                found = True
+                print("\nCurrent Product Details :\n")
+                item.display()
+                item.price = float(input("Enter new price : "))
+                item.stock = int(input("Enter new stock : "))
+                print("\nProduct updated successfully:\n")
+                item.display()
                 break
         if found == False:
             print("\nProduct not found.\n")

@@ -11,22 +11,15 @@ while True:
     show_menu()
     choice = int(input("Enter your choice : "))
 
-    if choice == 5:
+    if choice == 6:
 
         print("Thank you for using Crochoria Inventory System!")
         break
 
     if choice == 1:
 
-        prod_id = int(input("Enter Product ID : "))
-        name = input("Enter product name : ")
-        category = input("Enter product category : ")
-        price = float(input("Enter  product price : "))
-        stock = int(input("Enter stock : "))
-        product = Product(prod_id, name, category, price, stock)
-        inventory.add_product(product)
-        inventory.save_products()
-        print("\nProduct added successfully!\n")
+        if inventory.add_product():
+            inventory.save_products()
 
     elif choice == 2:
 
@@ -39,6 +32,10 @@ while True:
     elif choice == 4:
 
         inventory.delete_product()
+        inventory.save_products()
+
+    elif choice == 5:
+        inventory.update_product()
         inventory.save_products()
 
     else:
