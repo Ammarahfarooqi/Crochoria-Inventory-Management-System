@@ -5,3 +5,6 @@ class Product:
         self.category = category
         self.price = price
         self.stock = stock
+
+    def display(self):
+            print("ID : ", self.prod_id, "\nName : ", self.name, "\nCategory : ", self.category, "\nPrice : ", self.price, "\nStock : ", self.stock)
