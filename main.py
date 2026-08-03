@@ -4,6 +4,9 @@ from menu import show_menu
 
 inventory = Inventory()
 
+inventory.load_products()
+
+
 while True:
     show_menu()
     choice = int(input("Enter your choice : "))
@@ -22,6 +25,7 @@ while True:
         stock = int(input("Enter stock : "))
         product = Product(prod_id, name, category, price, stock)
         inventory.add_product(product)
+        inventory.save_products()
         print("\nProduct added successfully!\n")
 
     elif choice == 2:
@@ -29,10 +33,13 @@ while True:
         inventory.display_products()
 
     elif choice == 3:
+
         inventory.search_product()
 
     elif choice == 4:
+
         inventory.delete_product()
+        inventory.save_products()
 
     else:
         print("\nInvalid Choice\n")
