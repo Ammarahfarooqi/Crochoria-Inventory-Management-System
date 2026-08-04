@@ -1,2 +1,2 @@
-1,Penguin,Keychain,850,3
-2,Bunny,Plushie,1200,5
+1,penguin,keychain,850.0,3
+2,bunny,plushie,3500.0,2

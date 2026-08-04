@@ -9,7 +9,12 @@ inventory.load_products()
 
 while True:
     show_menu()
-    choice = int(input("Enter your choice : "))
+    
+    try:
+        choice = int(input("Enter your choice : "))
+    except ValueError:
+        print("\nPlease enter a valid number\n")
+        continue
 
     if choice == 6:
 
