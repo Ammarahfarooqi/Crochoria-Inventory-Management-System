@@ -4,35 +4,51 @@ class Inventory:
     def __init__(self):
         self.products = []
 
-
-    def add_product(self):
+    def add_product_console(self):
         try:
             prod_id = int(input("Enter Product ID : "))
-            name = input("Enter product name : ")
-            category = input("Enter product category : ")
-            price = float(input("Enter product price : "))
-            stock = int(input("Enter stock : "))
-        except ValueError:
-            print("\nInvalid input. Product ID and Stock must be integers, Price must be a number.\n")
-            return False
-
-        for item in self.products:
-            if prod_id == item.prod_id:
+            if self.id_exists(prod_id):
                 print("\nProduct ID already exists.\n")
                 return False
+            name = input("Enter Product Name : ")
+            category = input("Enter Category : ")
+            price = float(input("Enter Price : "))
+            stock = int(input("Enter Stock : "))
+
+        except ValueError:
+            print("Invalid Input")
+            return False
+
         product = Product(prod_id, name, category, price, stock)
+        return self.add_product(product)
+            
+
+    def add_product(self, product):
+        for item in self.products:
+            if item.prod_id == product.prod_id:
+                print("\nProduct ID already exists.\n")
+                return False
+
         self.products.append(product)
+        self.products.sort(key=lambda x: x.prod_id)
         print("\nProduct added successfully!\n")
         return True
-
+    
+    def id_exists(self, product_id):
+        for item in self.products:
+            if item.prod_id == product_id:
+                return True
+        return False
 
     def display_products(self):
         if len(self.products) == 0:
             print("\nNo products available\n")
         else:
-            for item in self.products:
+            for item in sorted(self.products, key=lambda x: x.prod_id):
                 item.display()
 
+    def get_products(self):
+        return self.products
 
     def search_product(self):
         while True:
@@ -66,6 +82,11 @@ class Inventory:
             else:
                 print("\nEnter a valid no\n")
 
+    def find_product_by_id(self, product_id):
+        for item in self.products:
+            if item.prod_id == product_id:
+                return item
+        return None
 
     def delete_product(self):
         product_id = int(input("Enter Product ID : "))
@@ -87,6 +108,22 @@ class Inventory:
         if found == False:
             print("\nProduct not found.\n")
 
+    def delete_product_by_id(self, product_id):
+        for item in self.products:
+            if item.prod_id == product_id:
+                self.products.remove(item)
+                return True
+
+        return False
+
+    
+    def update_product_by_id(self, product_id, price, stock):
+        product = self.find_product_by_id(product_id)
+        if product:
+            product.price = price
+            product.stock = stock
+            return True
+        return False
 
     def update_product(self):
         product_id = int(input("Enter Product ID : "))
@@ -125,6 +162,7 @@ class Inventory:
                     data = line.split(",")
                     product = Product(int(data[0]), data[1], data[2], float(data[3]), int(data[4]))
                     self.products.append(product)
+                    self.products.sort(key=lambda x: x.prod_id)
         except FileNotFoundError:
             print("\nNo saved products found. Starting with an empty inventory.\n")
             return 

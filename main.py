@@ -23,7 +23,7 @@ while True:
 
     if choice == 1:
 
-        if inventory.add_product():
+        if inventory.add_product_console():
             inventory.save_products()
 
     elif choice == 2:

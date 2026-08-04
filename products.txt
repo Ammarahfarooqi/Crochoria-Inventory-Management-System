@@ -1,2 +1,5 @@
-1,penguin,keychain,850.0,3
-2,bunny,plushie,3500.0,2
+1,penguin,keychain,900.0,4
+3,moon,keychain,400.0,3
+4,star,keychain,300.0,6
+6,star,keychain,300.0,4
+7,chick,plushie,1500.0,0
