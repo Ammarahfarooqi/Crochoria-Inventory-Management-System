@@ -9,14 +9,14 @@ inventory.load_products()
 
 while True:
     show_menu()
-    
+
     try:
         choice = int(input("Enter your choice : "))
     except ValueError:
         print("\nPlease enter a valid number\n")
         continue
 
-    if choice == 6:
+    if choice == 7:
 
         print("Thank you for using Crochoria Inventory System!")
         break
@@ -43,5 +43,8 @@ while True:
         inventory.update_product()
         inventory.save_products()
 
+    elif choice == 6:
+        inventory.inventory_summary()
+        
     else:
         print("\nInvalid Choice\n")

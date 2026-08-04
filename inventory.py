@@ -71,6 +71,16 @@ class Inventory:
         if found == False:
             print("\nProduct not found.\n")
 
+    def inventory_summary(self):
+        total_products = len(self.products)
+        total_stock = 0
+        total_value = 0
+        for item in self.products:
+            total_stock += item.stock
+            total_value += item.stock * item.price
+        print("========== INVENTORY SUMMARY ==========\n")
+        print("Total Products : ", total_products, "\nTotal Stock : ", total_stock, "\nInventory Value : ", total_value)
+
     def load_products(self):
         try:
             with open("products.txt") as f:
