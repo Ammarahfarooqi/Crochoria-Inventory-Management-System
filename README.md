@@ -67,31 +67,6 @@ Crochoria-Inventory-Management-System/
 └── README.md
 ```
 
----
-
-## 🚀 Getting Started
-
-1. Clone this repository
-
-```bash
-git clone https://github.com/your-username/Crochoria-Inventory-Management-System.git
-```
-
-2. Open the project folder
-
-3. Run the application
-
-```bash
-python gui.py
-```
-
----
-
-## 📸 Screenshots
-
-![alt text](image.png)
-
-
 
 ## 🌷 Future Improvements
 
