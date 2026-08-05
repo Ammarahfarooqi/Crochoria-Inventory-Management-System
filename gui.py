@@ -6,28 +6,34 @@ from delete_window import open_delete_window
 from update_window import open_update_window
 from summary_window import open_summary_window
 from inventory_manager import inventory
+from about_window import open_about_window
+BG = "#FFF7D1"
+YELLOW = "#FFECC8"
+PINK = "#DD6FA1"
+DPINK = "#ED589B"
+
 
 window = tk.Tk()
 window.title("Crochoria Inventory System")
-window.geometry("600x400")
+window.state("zoomed")
 heading = tk.Label(
     window,
-    text = "🌸 Crochoria Inventory System 🌸",
-    font = ("Comic Sans MS",20,"bold"),
-    fg = "deeppink",    
-    bg="#FFF0F5")
-heading.pack()
+    text = "✮⋆˙ Crochoria Inventory System ✮⋆˙",
+    font = ("Tiny5",28,"bold"),
+    fg = DPINK,    
+    bg=YELLOW)
+heading.pack(pady=(20,0))
 
 button_frame = tk.Frame(
     window,
-    bg="#FFF0F5"
+    bg=YELLOW
 )
-button_frame.pack(pady=20)
+button_frame.place(relx=0.5, rely=0.52, anchor="center")
 
 button_style = {
-    "font": ("Comic Sans MS", 12, "bold"),
-    "bg": "white",
-    "fg": "deeppink",
+    "font": ("Pixelify Sans", 16, "bold"),
+    "bg": BG,
+    "fg": PINK,
     "width": 20,
     "cursor": "hand2",
     "relief": "raised"
@@ -86,6 +92,16 @@ summ_button = tk.Button(
     **button_style
 )
 summ_button.grid(row=2, column=1, padx=10, pady=10)
+
+#about
+about_button = tk.Button(
+    button_frame,
+    text="ℹ About",
+    command=lambda: open_about_window(window),
+    **button_style
+)
+about_button.grid(row=3, column=0, padx=10, pady=10)
+
 #exit
 exit_button = tk.Button(
     button_frame,
@@ -95,6 +111,16 @@ exit_button = tk.Button(
 )
 exit_button.grid(row=3, column=1, padx=10, pady=10)
 
-window.configure(bg="#FFF0F5")
+window.configure(bg=BG)
+
+footer = tk.Label(
+    window,
+    text="⋆˚꩜｡ Handmade with Python & Tkinter ⋆˚꩜｡\nNo AI Used( ◡̀_◡́)ᕤ",
+    font=("Pixelify Sans",13,"bold"),
+    fg="#834112",
+    bg=YELLOW
+)
+
+footer.pack(side="bottom", pady=10)
 
 window.mainloop()

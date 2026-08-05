@@ -5,14 +5,14 @@ def open_display_window(window):
     display_window = tk.Toplevel(window)
     display_window.title("Display Products")
     display_window.geometry("600x400")
-    display_window.configure(bg="#FFF0F5")
+    display_window.configure(bg="#FFF7D1")
 
     title = tk.Label(
         display_window,
-        text="🌸 Products 🌸",
-        font=("Comic Sans MS",16,"bold"),
-        fg="deeppink",
-        bg="#FFF0F5"
+        text="♡ Here You Go Cutie ♡",
+        font=("Tiny5",21,"bold"),
+        fg="#ED589B",
+        bg="#FFF7D1"
     )
 
     title.pack(pady=10)
@@ -20,7 +20,9 @@ def open_display_window(window):
         display_window,
         width=60,
         height=15,
-        font=("Comic Sans MS",10)
+        font=("Special Elite",13),
+        bg="#FFECC8",
+        fg="#DD6FA1"
     )
 
     text_box.pack(pady=10)
@@ -34,10 +36,10 @@ def open_display_window(window):
             inventory.products.sort(key=lambda x: x.prod_id)
             text_box.insert(
                 "end",
-                f"ID: {item.prod_id}\n"
-                f"Name: {item.name}\n"
-                f"Category: {item.category}\n"
-                f"Price: {item.price}\n"
-                f"Stock: {item.stock}\n"
-                "-------------------------\n"
+                f"ID : {item.prod_id}\n"
+                f"Name : {item.name}\n"
+                f"Category : {item.category}\n"
+                f"Price : {item.price}\n"
+                f"Stock : {item.stock}\n"
+                "-------------------------\n\n"
             )

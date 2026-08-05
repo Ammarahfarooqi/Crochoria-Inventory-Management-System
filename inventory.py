@@ -4,6 +4,7 @@ class Inventory:
     def __init__(self):
         self.products = []
 
+
     def add_product_console(self):
         try:
             prod_id = int(input("Enter Product ID : "))
@@ -40,6 +41,8 @@ class Inventory:
                 return True
         return False
 
+
+
     def display_products(self):
         if len(self.products) == 0:
             print("\nNo products available\n")
@@ -49,6 +52,7 @@ class Inventory:
 
     def get_products(self):
         return self.products
+
 
     def search_product(self):
         while True:
@@ -82,11 +86,19 @@ class Inventory:
             else:
                 print("\nEnter a valid no\n")
 
+
     def find_product_by_id(self, product_id):
         for item in self.products:
             if item.prod_id == product_id:
                 return item
         return None
+
+    def find_product_by_name(self, product_name):
+        for item in self.products:
+            if item.name.lower() == product_name.lower():
+                return item
+        return None
+
 
     def delete_product(self):
         product_id = int(input("Enter Product ID : "))
