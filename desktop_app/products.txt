@@ -1,4 +1,4 @@
-1,penguin,keychain,850.0,6
+1,penguin,keychain,900.0,7
 2,moon,keychain,400.0,3
 3,bear,plushie,3500.0,1
 4,strawberry,plushie,1900.0,2
