@@ -95,7 +95,7 @@ Implementing CRUD-style inventory operations
 Organizing a larger Python project into separate modules
 Using Git and GitHub for version control
 
-## 🌷 Future Improvements
+### 🌷 Future Improvements
 
 Possible future improvements for the desktop version include:
 
@@ -105,6 +105,6 @@ Possible future improvements for the desktop version include:
 🌙 Dark mode
 📈 More detailed inventory analytics
 
-## 👩‍💻 Developer
+### 👩‍💻 Developer
 
 Made with 💖 by **Ammarah Farooqi**
